@@ -1,5 +1,7 @@
 from flask import render_template
-from wtforms.ext.appengine.db import model_form
+from flask.ext.wtf import Form
+# from wtforms.ext.appengine.db import model_form
+from wtforms.ext.sqlalchemy.orm import model_form
 from app import app
 from app import models
 
@@ -11,7 +13,9 @@ def index():
 
 @app.route('/task/create')
 def task_create():
-    return render_template('task/create.html')
+    MyForm = model_form(models.Task, base_class=Form)
+    form = MyForm()
+    return render_template('task/create.html', form=form)
 
 @app.route('/task/delete/<pk>')
 def task_delete():
