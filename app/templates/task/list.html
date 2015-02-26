@@ -20,6 +20,8 @@
         {% for task in tasks %}
         <tr>
             <td>{{ task.name }}</td>
+            <td>{{ task.time }}</td>
+            <td><a href="{{ url_for('task_delete', pk=task.id) }} ">Delete</a></td>
         </tr>
         {% endfor %}
         </tbody>

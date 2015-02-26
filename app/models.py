@@ -16,7 +16,7 @@ class Task(db.Model):
     name = db.Column(
         db.String(64),
         index=True,
-        unique=True
+        unique=True,
     )
 
     time = db.Column(
