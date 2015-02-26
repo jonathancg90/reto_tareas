@@ -1,19 +1,23 @@
 from flask import render_template
+from wtforms.ext.appengine.db import model_form
 from app import app
+from app import models
 
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html')
+    tasks = models.Task.query.all()
+    return render_template('index.html', tasks=tasks)
 
 @app.route('/task/create')
 def task_create():
-    return render_template('index.html')
+    return render_template('task/create.html')
 
 @app.route('/task/delete/<pk>')
 def task_delete():
-    return render_template('index.html')
+    return render_template('task/list.html')
 
 @app.route('/task')
 def task_list():
-    return render_template('index.html')
+    tasks = models.Task.query.all()
+    return render_template('task/list.html', tasks=tasks)
