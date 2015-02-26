@@ -2,13 +2,17 @@
 
     {% block content %}
 
-    <form method="POST" action="">
+    <form action="{{ url_for('task_create') }}" method=post>
         {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
         {% for field in form if field.widget.input_type != 'hidden' %}
             <div class="form-group">
                 {{field.label}}
                 {{field(class='form-control')}}
             </div>
         {% endfor %}
+
+        <button type="button" class="btn btn-primary">Cancelar</button>
+        <input type="submit" value="Grabar" class="btn btn-success">
     </form>
     {% endblock %}
