@@ -4,7 +4,7 @@ from app import db
 class Task(db.Model):
     STATUS_WAIT = 1
     STATUS_EXECUTE = 2
-    STATUS_COMPLETE = 2
+    STATUS_COMPLETE = 3
     STATUS_CHOICES = (
         (STATUS_WAIT, 'En espera'),
         (STATUS_EXECUTE, 'Ejecutandose'),
@@ -27,6 +27,10 @@ class Task(db.Model):
         db.SmallInteger,
         default=STATUS_WAIT
     )
+
+    def display_status(self):
+        status = dict(self.STATUS_CHOICES)
+        return status[self.status]
 
     def __repr__(self):
         return '<Task %r>' % (self.name)
