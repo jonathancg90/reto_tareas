@@ -2,8 +2,6 @@ from flask import render_template
 from flask.ext.wtf import Form
 from flask import redirect, url_for
 from app import db
-# from wtforms.ext.appengine.db import model_form
-from wtforms import HiddenField
 from wtforms.ext.sqlalchemy.orm import model_form
 from app import app
 from app import models
@@ -20,8 +18,8 @@ def task_create():
     form = MyForm()
     if form.validate_on_submit():
         new_task = models.Task(
-            form.name.data,
-            form.time.data,
+            name=form.name.data,
+            time=form.time.data
         )
         db.session.add(new_task)
         db.session.commit()
