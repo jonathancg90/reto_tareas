@@ -1,3 +1,4 @@
 Flask==0.10.1
+sqlalchemy-migrate==0.9.5
 Flask-SQLAlchemy==2.0
 Flask-WTF==0.11
