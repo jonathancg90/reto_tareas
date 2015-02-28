@@ -2,28 +2,9 @@ from flask import render_template
 from flask.ext.wtf import Form
 from flask import redirect, url_for
 from app import db
-import time
-import datetime
-from threading import Thread
 from wtforms.ext.sqlalchemy.orm import model_form
 from app import app
 from app import models
-
-# def print_queue_size():
-#     while True:
-#         tasks = models.Task.query.filter(models.Task.status != models.Task.STATUS_COMPLETE).all()
-#         for task in tasks:
-#             task.status = models.Task.STATUS_EXECUTE
-#             db.session.commit()
-#             app.logger.debug("Execute Task: %s" % (task.name))
-#             time.sleep(task.time)
-#             task.status = models.Task.STATUS_COMPLETE
-#             db.session.commit()
-#         time.sleep(1)
-#
-# t = Thread(target=print_queue_size, args=())
-# t.setDaemon(True)
-# t.start()
 
 @app.route('/')
 @app.route('/index')
