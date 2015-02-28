@@ -6,4 +6,8 @@ Iniciar la aplicacion:
 
 2) Ejecutar migraciones
 
-    python manager.py  db migrate
+    python manager.py db upgrade
+
+3) Arrancar servidor
+
+    python run.py
