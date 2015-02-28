@@ -5,6 +5,8 @@ from app import db
 from wtforms.ext.sqlalchemy.orm import model_form
 from app import app
 from app import models
+from app.forms import TaskForm
+
 
 @app.route('/')
 @app.route('/index')
@@ -14,8 +16,9 @@ def index():
 
 @app.route('/task/create', methods=['GET', 'POST'])
 def task_create():
-    my_form = model_form(models.Task, base_class=Form)
-    form = my_form()
+    # my_form = model_form(models.Task, base_class=Form)
+    # form = my_form()
+    form = TaskForm()
     if form.validate_on_submit():
         new_task = models.Task(
             name=form.name.data,
