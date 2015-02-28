@@ -1,4 +1,5 @@
 from app import db
+from datetime import datetime
 
 
 class Task(db.Model):
@@ -26,6 +27,17 @@ class Task(db.Model):
     status = db.Column(
         db.SmallInteger,
         default=STATUS_WAIT
+    )
+
+    created_on = db.Column(
+        db.DateTime(),
+        default=datetime.utcnow
+    )
+
+    updated_on = db.Column(
+        db.DateTime(),
+        default=datetime.utcnow,
+        onupdate=datetime.utcnow
     )
 
     def display_status(self):
