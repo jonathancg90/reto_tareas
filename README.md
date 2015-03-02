@@ -11,3 +11,8 @@ Iniciar la aplicacion:
 3) Arrancar servidor
 
     python run.py
+    
+    
+*) Styles and Scripts
+
+    bower install
